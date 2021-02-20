@@ -5,6 +5,8 @@ from tkinter import PhotoImage
 import tkinter.ttk as ttk
 from PIL import ImageTk, Image
 import datetime
+import webbrowser
+import pyperclip
 import time
 
 ### variables
@@ -14,8 +16,62 @@ email = ''
 
 
 
+discord_link = 'https://discord.gg/hsMpeuw5qe'
+github_link = 'https://github.com/Frezo23'
+email_link = 'wilczewski.dominik@gmail.com'
+donate_link = 'https://tipply.pl/u/frezo'
+
 
 ### Functions 
+
+def open_discord():
+    webbrowser.open(discord_link)
+
+def open_github():
+    webbrowser.open(github_link)
+
+def donate():
+    webbrowser.open(donate_link)
+
+def copy_mail():
+    pyperclip.copy(email_link)
+
+    link_copied_lbl = tk.Label(root, image=link_copied_img,bg='#212838',borderwidth=0)
+    link_copied_lbl.place(x=800,y=960)
+
+    root.update()
+    link_copied_lbl.after(2000, link_copied_lbl.destroy())
+    root.update()
+
+def copy_discord():
+    pyperclip.copy(discord_link)
+
+    link_copied_lbl = tk.Label(root, image=link_copied_img,bg='#212838',borderwidth=0)
+    link_copied_lbl.place(x=800,y=960)
+
+    root.update()
+    link_copied_lbl.after(2000, link_copied_lbl.destroy())
+    root.update()
+
+def copy_github():
+    pyperclip.copy(github_link)
+
+    link_copied_lbl = tk.Label(root, image=link_copied_img,bg='#212838',borderwidth=0)
+    link_copied_lbl.place(x=800,y=960)
+
+    root.update()
+    link_copied_lbl.after(2000, link_copied_lbl.destroy())
+    root.update()
+
+def copy_donate():
+    pyperclip.copy(donate_link)
+
+    link_copied_lbl = tk.Label(root, image=link_copied_img,bg='#212838',borderwidth=0)
+    link_copied_lbl.place(x=800,y=960)
+
+    root.update()
+    link_copied_lbl.after(2000, link_copied_lbl.destroy())
+    root.update()
 
 class GoTo:
 
@@ -37,11 +93,45 @@ class GoTo:
 
         ### creating widgets for main screen
 
-        name_lbl = tk.Label(root, text='Email:',bg='#212838',fg='#e4e4e4',font=('AcmeFont',20))
-        name_lbl.place(x=65,y=200)
+        user_info_lbl = tk.Label(root,text='User Info:',bg='#212838',fg='#e4e4e4',font=('AcmeFont',20))
+        user_info_lbl.place(x=75,y=160)
+
+        name_lbl = tk.Label(root, text='Email:',bg='#212838',fg='#e4e4e4',font=('AcmeFont',17))
+        name_lbl.place(x=65,y=230)
 
         email_show_lbl = tk.Label(root, text=email,bg='#212838',fg='#e4e4e4',font=('AcmeFont',15))
-        email_show_lbl.place(x=150,y=205)
+        email_show_lbl.place(x=65,y=265)
+
+        contacts_lbl = tk.Label(root, text='Contact me:',bg='#212838',fg='#e4e4e4',font=('AcmeFont',20))
+        contacts_lbl.place(x=65,y=547)
+
+        contact_email_image = tk.Button(root,image=contact_mail_img,bg='#212838',borderwidth=0,command=copy_mail)
+        contact_email_image.place(x=65,y=610)
+
+        contact_email_lbl = tk.Button(root,text=email_link,bg='#212838',fg='#e4e4e4',borderwidth=0,font=('AcmeFont',15),command=copy_mail)
+        contact_email_lbl.place(x=110,y=610)
+
+        contact_discord_image = tk.Button(root,image=contact_discord_img,bg='#212838',borderwidth=0,command=open_discord)
+        contact_discord_image.place(x=65,y=660)
+
+        contact_discord_lbl = tk.Button(root,text=discord_link,bg='#212838',fg='#e4e4e4',borderwidth=0,font=('AcmeFont',15),command=copy_discord)
+        contact_discord_lbl.place(x=110,y=660)
+
+        contact_github_image = tk.Button(root,image=contact_github_img,bg='#212838',borderwidth=0,command=open_github)
+        contact_github_image.place(x=65,y=710)
+
+        contact_github_lbl = tk.Button(root,text=github_link,bg='#212838',fg='#e4e4e4',borderwidth=0,font=('AcmeFont',15),command=copy_github)
+        contact_github_lbl.place(x=110,y=710)
+
+        support_lbl = tk.Label(root, text='Support me:',bg='#212838',fg='#e4e4e4',font=('AcmeFont',20))
+        support_lbl.place(x=65,y=793)
+
+        donate_btn = tk.Button(root, image=donate_img,bg='#212838',borderwidth=0,command=donate,activebackground='#212838')
+        donate_btn.place(x=65,y=855)
+
+        donate_lbl = tk.Button(root, text=donate_link,bg='#212838',fg='#e4e4e4',font=('AcmeFont',15),borderwidth=0,command=copy_donate,activebackground='#212838')
+        donate_lbl.place(x=110,y=855)
+
 
 
 def login():
@@ -90,6 +180,28 @@ password_img = ImageTk.PhotoImage(password_img)
 email_img = Image.open('assets/user_img.png')
 email_img = email_img.resize((30, 30), Image.ANTIALIAS)
 email_img = ImageTk.PhotoImage(email_img)
+
+### contact icons
+
+contact_mail_img = Image.open('assets/contact_mail.png')
+contact_mail_img = contact_mail_img.resize((40, 40), Image.ANTIALIAS)
+contact_mail_img = ImageTk.PhotoImage(contact_mail_img)
+
+contact_discord_img = Image.open('assets/contact_discord.png')
+contact_discord_img = contact_discord_img.resize((40, 40), Image.ANTIALIAS)
+contact_discord_img = ImageTk.PhotoImage(contact_discord_img)
+
+contact_github_img = Image.open('assets/contact_github.png')
+contact_github_img =contact_github_img.resize((40, 40), Image.ANTIALIAS)
+contact_github_img = ImageTk.PhotoImage(contact_github_img)
+
+donate_img = Image.open('assets/donate.png')
+donate_img = donate_img.resize((40, 40), Image.ANTIALIAS)
+donate_img = ImageTk.PhotoImage(donate_img)
+
+link_copied_img = Image.open('assets/link_copied.png')
+link_copied_img = link_copied_img.resize((300, 85), Image.ANTIALIAS)
+link_copied_img = ImageTk.PhotoImage(link_copied_img)
 
 
 
