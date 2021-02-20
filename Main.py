@@ -7,13 +7,76 @@ from PIL import ImageTk, Image
 import datetime
 import time
 
+### variables
+
+password = ''
+email = ''
+
+
+
+
+### Functions 
+
+class GoTo:
+
+    def MainPage():
+
+        ### destroying widgets from window
+        
+        pass_ent.destroy()
+        pass_lbl.destroy()
+        pass_lbl1.destroy()
+        pass_image.destroy()
+        login_btn.destroy()
+        email_ent.destroy()
+        email_lbl.destroy()
+        email_lbl1.destroy()
+        email_image.destroy()
+
+        bg_lbl.configure(image=bg_img)
+
+        ### creating widgets for main screen
+
+        name_lbl = tk.Label(root, text='Email:',bg='#212838',fg='#e4e4e4',font=('AcmeFont',20))
+        name_lbl.place(x=65,y=200)
+
+        email_show_lbl = tk.Label(root, text=email,bg='#212838',fg='#e4e4e4',font=('AcmeFont',15))
+        email_show_lbl.place(x=150,y=205)
+
+
+def login():
+    global password, email
+
+    password = pass_ent.get()
+    email = email_ent.get()
+
+    if len(password) >= 6 and '@' in email and '.' in email:
+        error_lbl = tk.Label(root,text='Logging successful',bg='#212838',fg='#49c240',font=('AcmeFont',10))
+        error_lbl.place(x=900,y=620)
+        error_lbl.after(2500, error_lbl.destroy)
+        root.update()
+        time.sleep(2.6)
+        GoTo.MainPage()
+        root.update()
+    else:
+        error_lbl = tk.Label(root,text='Error Check your email or password',bg='#212838',fg='#e02838',font=('AcmeFont',10))
+        error_lbl.place(x=850,y=620)
+        error_lbl.after(2000, error_lbl.destroy)
+
+
+
+
 
 root = Tk()
 
 root.geometry('1920x1080')
 root.resizable(False,False)
 
+
+
 ### loading assets
+
+
 
 bg_login_img = PhotoImage(file='assets/bg_login.png')
 bg_img = PhotoImage(file='assets/bg.png')
@@ -32,10 +95,16 @@ email_img = ImageTk.PhotoImage(email_img)
 
 ### setting background
 
+
+
 bg_lbl = tk.Label(root,image=bg_login_img)
 bg_lbl.place(x=-2,y=-2)
 
+
+
 ### login widgets
+
+
 
 email_lbl1 = tk.Label(root,bg='#212838',fg='#e4e4e4',font=('AcmeFont',10),text='___________________________________________________________')
 email_lbl1.place(x=750,y=270)
@@ -62,7 +131,7 @@ pass_lbl.place(x=750,y=310)
 pass_ent = tk.Entry(root,bg='#212838',fg='#e4e4e4', show="*",font=('AcmeFont',20),highlightthickness=0,borderwidth=0)
 pass_ent.place(x=790,y=330)
 
-login_btn = tk.Button(root,image=login_button_img,font=('AcmeFont',40),bg='#212838',fg='#e4e4e4',border=0,activebackground='#212838')
+login_btn = tk.Button(root,image=login_button_img,font=('AcmeFont',40),bg='#212838',fg='#e4e4e4',border=0,activebackground='#212838', command=login)
 login_btn.place(x=760,y=650)
 
 root.mainloop()
