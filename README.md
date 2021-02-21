@@ -2,7 +2,7 @@
 
 > Made by Dominik Wilczewski
 
-[![NPM version](https://img.shields.io/npm/v/standard-version.svg)](https://www.npmjs.com/package/standard-version)
+https://img.shields.io/github/v/release/Frezo23/Billing-Manager?style=plastic
 
 ---
 
