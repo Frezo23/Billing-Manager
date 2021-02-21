@@ -12,7 +12,7 @@
 
 ### Project Information
 
-<img alt="GitHub code size in bytes" src="https://img.shields.io/github/languages/code-size/Frezo23/Billing-Manager?style=plastic"> <img alt="GitHub repo size" src="https://img.shields.io/github/repo-size/Frezo23/Billing-Manager?style=plastic">
+<img alt="GitHub code size in bytes" src="https://img.shields.io/github/languages/code-size/Frezo23/Billing-Manager?style=plastic"> <img alt="GitHub repo size" src="https://img.shields.io/github/repo-size/Frezo23/Billing-Manager?style=plastic"> <img alt="Lines of code" src="https://img.shields.io/tokei/lines/github/Frezo23/Billing-Manager?style=plastic"> <img alt="GitHub all releases" src="https://img.shields.io/github/downloads/Frezo23/Billing-Manager/total?style=plastic">
 
 ---
 
