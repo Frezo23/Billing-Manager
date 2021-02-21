@@ -1,2 +1,12 @@
 # Billing-Manager
-App made for managing your billing
+
+> Made by Dominik Wilczewski
+
+---
+
+### Contact info
+
+- [Discord](https://discord.gg/hsMpeuw5qe)
+- [Donate](https://tipply.pl/u/frezo)
+
+---
