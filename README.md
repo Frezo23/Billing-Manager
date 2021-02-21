@@ -2,6 +2,9 @@
 
 > Made by Dominik Wilczewski
 
+$ cat package.json | grep '\"version\"'
+  "version": "1.1.4",
+
 ---
 
 ### Contact info
