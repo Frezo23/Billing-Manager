@@ -2,6 +2,10 @@
 
 > Made by Dominik Wilczewski
 
+---
+
+### Current version
+
 <img alt="GitHub release (latest by date)" src="https://img.shields.io/github/v/release/Frezo23/Billing-Manager?style=plastic">
 
 ---
