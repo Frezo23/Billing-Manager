@@ -10,6 +10,12 @@
 
 ---
 
+### Project Information
+
+<img alt="GitHub code size in bytes" src="https://img.shields.io/github/languages/code-size/Frezo23/Billing-Manager?style=plastic"> <img alt="GitHub repo size" src="https://img.shields.io/github/repo-size/Frezo23/Billing-Manager?style=plastic">
+
+---
+
 ### Contact info
 
 - Discord - [FREZO#4111](https://discord.gg/hsMpeuw5qe)
