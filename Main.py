@@ -7,13 +7,14 @@ from PIL import ImageTk, Image
 import datetime
 import webbrowser
 import pyperclip
+import random
 import time
 
 ### variables
 
 password = ''
 email = ''
-
+a = 1
 
 
 discord_link = 'https://discord.gg/hsMpeuw5qe'
@@ -76,6 +77,7 @@ def copy_donate():
 class GoTo:
 
     def MainPage():
+        global a
 
         ### destroying widgets from window
         
@@ -92,6 +94,8 @@ class GoTo:
         bg_lbl.configure(image=bg_img)
 
         ### creating widgets for main screen
+
+        ## Left tab
 
         user_info_lbl = tk.Label(root,text='User Info:',bg='#212838',fg='#e4e4e4',font=('AcmeFont',20))
         user_info_lbl.place(x=75,y=160)
@@ -132,6 +136,48 @@ class GoTo:
         donate_lbl = tk.Button(root, text=donate_link,bg='#212838',fg='#e4e4e4',font=('AcmeFont',15),borderwidth=0,command=copy_donate,activebackground='#212838')
         donate_lbl.place(x=110,y=855)
 
+
+        ### Right tab
+
+        style = ttk.Style(root)
+
+        style.configure('Treeview',border=0,background='#363c4e',foreground='#e4e4e4',font=('Titillium',15), rowheight=45)
+        style.map('Treeview', background=[('selected', '#212874')])
+
+        bills_tree = ttk.Treeview(root)
+        bills_tree.place(x=1000,y=400)
+
+
+        bills_tree['columns'] = ('Currency','Spend','Date')
+        bills_tree.column('#0', width=100)
+        bills_tree.column('Currency',width=70)
+        bills_tree.column('Spend',width=300)
+        bills_tree.column('Date',width=300)
+
+        bills_tree.heading('#0',text='Billing List',anchor=tk.W)
+        bills_tree.heading('Currency',text='Currency',anchor=tk.W)
+        bills_tree.heading('Spend',text='Spend',anchor=tk.W)
+        bills_tree.heading('Date',text='Date',anchor=tk.W)
+
+        for x in range(20):
+            bills_tree.insert('', 'end',text=str(a) + '.', values=('PLN',str(random.randint(1,1000)), str(datetime.datetime.today().strftime('%Y-%m-%d-%H:%M'))))
+            a += 1
+            root.update()
+
+
+        ### Find your bill
+
+        Search_lbl = tk.Label(root, text='Search options:',bg='#212838',fg='#e4e4e4',font=('AcmeFont',20))
+        Search_lbl.place(x=560,y=413)
+
+        search_lbl1 = tk.Label(root,bg='#212838',fg='#e4e4e4',font=('AcmeFont',10),borderwidth=0,text='________________________________________________')
+        search_lbl1.place(x=560,y=510)
+        
+        search_ent = tk.Entry(root,bg='#212838',fg='#e4e4e4',font=('AcmeFont',20),highlightthickness=0,borderwidth=0)
+        search_ent.place(x=560,y=490)
+
+        # selected_item = bills_tree.get_children()[0]
+        # bills_tree.delete(selected_item)
 
 
 def login():
