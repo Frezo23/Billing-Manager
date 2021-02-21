@@ -11,8 +11,18 @@
 
 ---
 
+#### Technologies
+
+- Python
+- Visual Studio Code
+- Gimp
+
+---
+
 ### Safety
 
+I'am using encryption library to encrypt data.
+
 ```python
-    import encypter
+    from cryptography.fernet import Fernet
 ```
